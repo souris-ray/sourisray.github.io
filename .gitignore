@@ -74,7 +74,7 @@ _config.yml
 # ============================================
 
 # Source assets folder (content already copied to public/assets/)
-assets/
+/assets/
 
 # Private tracking / admin files
 *.xlsx
