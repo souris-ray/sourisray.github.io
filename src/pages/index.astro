@@ -6,14 +6,15 @@ const tagline = 'The words are written. The silence between them is yours to fil
 ---
 
 <BaseLayout title="Home">
-  <style>
+  <style is:global>
     /* Home page overrides */
     .main-content {
       padding: 0;
       display: flex;
       flex-direction: column;
     }
-
+  </style>
+  <style>
     .hero-section {
       flex: 1;
     }

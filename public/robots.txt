@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sourisray.github.io/sitemap-index.xml
+Sitemap: https://souris-ray.github.io/sitemap-index.xml

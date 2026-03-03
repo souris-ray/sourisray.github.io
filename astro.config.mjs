@@ -6,7 +6,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sourisray.github.io',
+  site: 'https://souris-ray.github.io',
   base: '/',
   integrations: [
     tailwind({
