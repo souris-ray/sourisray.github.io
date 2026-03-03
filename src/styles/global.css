@@ -267,6 +267,9 @@
         font-size: 0.9rem;
         color: var(--color-text-secondary);
         transition: color var(--transition-fast);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
     }
 
     .footer-link:hover {
@@ -688,6 +691,13 @@
         color: var(--color-text-muted);
         padding-top: var(--spacing-sm);
         border-top: 1px solid rgba(58, 94, 82, 0.15);
+    }
+
+    .script-card-date,
+    .wc-numbers {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35em;
     }
 
     .script-card-wordcount {
