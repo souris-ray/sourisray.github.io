@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  script: {
+    slug: string;
+    data: {
+      title: string;
+      description: string;
+      total_word_count: number;
+      spoken_word_count: number;
+      date: Date;
+      tags: string[];
+      type: string;
+    };
+  };
+}
+
+const { script } = Astro.props;
+const { slug, data } = script;
+const { title, description, total_word_count, spoken_word_count, date, tags, type } = data;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const truncatedDesc = description.length > 120 ? description.substring(0, 117) + '...' : description;
+---
+
+<article
+  class="script-card"
+  data-date={date.toISOString().split('T')[0]}
+  data-title={title}
+  data-type={type}
+  data-tags={tags.join(',')}
+>
+  <a href={`/scripts/${slug}`} class="script-card-link">
+    <div class="script-card-content">
+      <h3 class="script-card-title">{title}</h3>
+      <p class="script-card-description">{truncatedDesc}</p>
+      <div class="script-card-meta">
+        <span class="script-card-date">
+          <Icon name="ph:calendar-blank" /> {formattedDate}
+        </span>
+        <span class="script-card-wordcount">
+          <span class="wc-numbers">
+            <Icon name="ph:file-text" /> {total_word_count}w / {spoken_word_count}w
+          </span>
+          <span class="wc-labels">
+            <span class="wc-label">TOTAL</span>
+            <span class="wc-label">SPOKEN</span>
+          </span>
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

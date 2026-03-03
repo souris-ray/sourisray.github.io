@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteTitle = 'Souris Ray';
+const tagline = 'The words are written. The silence between them is yours to fill.';
+---
+
+<BaseLayout title="Home">
+  <style>
+    /* Home page overrides */
+    .main-content {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-section {
+      flex: 1;
+    }
+
+    .hero-content {
+      margin-bottom: 100px;
+    }
+  </style>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">{siteTitle}</h1>
+      <p class="hero-tagline">{tagline}</p>
+      <div class="hero-cta">
+        <a href="/scripts" class="btn btn-primary btn-large">Explore Scripts</a>
+        <a href="/bilibili-tools" class="btn btn-primary btn-large">Bilibili Streaming Tools</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

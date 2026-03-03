@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const discordUrl = 'https://discord.gg/your-server-here';
+---
+
+<BaseLayout title="Bilibili Streaming Tools" description="A suite of open-source streaming utilities built for Bilibili creators">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">Bilibili Streaming Tools</h1>
+      <div class="ornamental-divider"></div>
+    </header>
+
+    <div class="page-content bilitools-content">
+      <h2>What Is This</h2>
+      <p>I build things for myself and others, and sometimes those things become useful enough to share.</p>
+      <p>This is a collection of streaming utilities I developed for my client when I was working as a VTuber manager. Bilibili is a platform with a rich ecosystem but very few dedicated, modern tools for creators who want granular control over their stream, especially not for those that don't speak Chinese. These are not polished commercial products. They are working tools, built to solve real problems I ran into while managing streams and helping others to stream.</p>
+
+      <div class="ornamental-divider"></div>
+
+      <h2>What's Included</h2>
+
+      <strong>Monetization & Punishment Wheel</strong>
+      <p>Tracks all incoming support - Paid Gifts, SuperChats, and Memberships - with a real-time animated progress bar. Hit milestones throughout your stream and trigger a fully customizable Punishment Wheel when goals are reached.</p>
+
+      <strong>Member Progress (Guard Goals)</strong>
+      <p>Set visual goals for your members and celebrate every step. Define multiple levels, upload custom artwork for each milestone, and let it sync automatically with your stream.</p>
+
+      <strong>Live Voting</strong>
+      <p>Run real-time polls directly in your stream. Viewers vote by typing a number in chat - results update live as they come in.</p>
+
+      <strong>Member Welcome Animations</strong>
+      <p>Make every new member feel special. Unique entrance animations per member rank, with support for custom images, GIFs, and sound effects.</p>
+
+      <strong>TTS & Sound Commands</strong>
+      <p>Never miss a SuperChat again. Powered by Kokoro (local AI) or AWS Polly, with built-in DeepL and AWS translation support. Viewers can also trigger custom sound effects via chat commands like <code>!yay</code>.</p>
+
+      <div class="ornamental-divider"></div>
+
+      <h2>Who It's For</h2>
+      <p>If you stream on Bilibili and want granular control without a heavy platform dependency, this is for you. Everything runs locally - no accounts, no subscriptions, no remote data collection. Built as a plugin for <a href="https://github.com/xfgryujk/blivechat" target="_blank" rel="noopener noreferrer">blivechat</a>, it works alongside your existing setup.</p>
+
+      <div class="ornamental-divider"></div>
+
+      <h2>Source & Setup</h2>
+      <p>The full source code, installation instructions, and release builds are available on GitHub.</p>
+
+      <div class="contact-buttons">
+        <a href="https://github.com/souris-ray/bilibili-streaming-widget" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.bilitools-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-gold-antique);
+}
+
+.bilitools-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.bilitools-content strong {
+  color: var(--color-text-primary);
+  font-family: var(--font-label);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.bilitools-content code {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg-secondary);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+}
+
+.contact-buttons {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+</style>

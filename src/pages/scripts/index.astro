@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import ScriptCard from '../../components/ScriptCard.astro';
+import { getCollection } from 'astro:content';
+
+const allScripts = await getCollection('scripts');
+const sortedScripts = allScripts.sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout title="Scripts" description="Browse my collection of ASMR scripts">
+  <div class="scripts-page">
+    <header class="page-header">
+      <h1 class="page-title">Scripts</h1>
+      <div class="ornamental-divider"></div>
+      <p class="page-description">Explore my collection of ASMR RP scripts.</p>
+    </header>
+
+    <FilterBar />
+
+    <div class="scripts-grid" id="scripts-grid">
+      {sortedScripts.map((script) => (
+        <ScriptCard script={script} />
+      ))}
+    </div>
+
+    <div class="no-results" id="no-results" style="display: none;">
+      <p>No scripts match your current filters. Try adjusting your selection.</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script src="/assets/js/filter.js" is:inline></script>

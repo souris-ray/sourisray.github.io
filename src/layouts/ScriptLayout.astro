@@ -1,0 +1,81 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  date: Date;
+  total_word_count: number;
+  spoken_word_count: number;
+  type?: string;
+  tags?: string[];
+  pdf?: string;
+}
+
+const { title, description, date, total_word_count, spoken_word_count, type, tags, pdf } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="script-page">
+    <div class="script-header">
+      <a href="/scripts" class="back-link">← Back to Scripts</a>
+      <div class="ornamental-divider"></div>
+      <h1 class="script-title">{title}</h1>
+      <div class="ornamental-divider"></div>
+    </div>
+
+    <div class="script-container">
+      <div class="script-content">
+        <div class="script-body">
+          <slot />
+        </div>
+      </div>
+
+      <aside class="script-sidebar">
+        <div class="script-meta-card">
+          <h3 class="meta-card-title">Details</h3>
+          <div class="ornamental-divider"></div>
+
+          <div class="meta-item">
+            <span class="meta-label">Date:</span>
+            <span class="meta-value">{formattedDate}</span>
+          </div>
+
+          <div class="meta-item">
+            <span class="meta-label">Word Count:</span>
+            <span class="meta-value">{total_word_count} words total / {spoken_word_count} spoken</span>
+          </div>
+
+          {type && (
+            <div class="meta-item">
+              <span class="meta-label">Type:</span>
+              <span class="meta-value">{type.replace(/_/g, ' ').charAt(0).toUpperCase() + type.replace(/_/g, ' ').slice(1)}</span>
+            </div>
+          )}
+
+          {tags && tags.length > 0 && (
+            <div class="meta-item meta-tags">
+              <span class="meta-label">Tags:</span>
+              <div class="tag-list">
+                {tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+            </div>
+          )}
+
+          {pdf && (
+            <>
+              <div class="ornamental-divider"></div>
+              <a href={pdf} class="btn btn-primary btn-download" download>Download PDF</a>
+            </>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

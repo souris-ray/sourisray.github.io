@@ -1,0 +1,33 @@
+---
+---
+
+<div class="filter-bar">
+  <div class="filter-bar-top">
+    <div class="filter-group">
+      <label for="filter-sort" class="filter-label">Sort by:</label>
+      <select id="filter-sort" class="filter-select">
+        <option value="date-desc">Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="title-asc">Title (A-Z)</option>
+        <option value="title-desc">Title (Z-A)</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="filter-type" class="filter-label">Type:</label>
+      <select id="filter-type" class="filter-select">
+        <option value="all">All Types</option>
+        <!-- Types will be populated dynamically -->
+      </select>
+    </div>
+
+    <button id="filter-reset" class="filter-reset">Reset Filters</button>
+  </div>
+
+  <div class="filter-bar-bottom">
+    <div class="filter-group filter-group-tags">
+      <label for="filter-tags" class="filter-label">Tags:</label>
+      <div id="filter-tags" class="filter-tags"></div>
+    </div>
+  </div>
+</div>
